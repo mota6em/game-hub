@@ -1,11 +1,12 @@
-import { HStack, Image, Text } from '@chakra-ui/react'
+import { ColorModeContext, HStack, Image, Text } from '@chakra-ui/react'
 import React from 'react'
 import logo from '../assests/profile.png';
+import ColorModeWitch from './ColorModeWitch';
 function NavBar() {
   return (
-    <HStack>
+    <HStack justifyContent={'space-between'} margin={'0 15px'}>
         <Image src={logo} boxSize={'40px'} margin={'3px'}></Image>
-        <Text>Nav Bar</Text>
+        <ColorModeWitch/>
     </HStack>
   )
 }
