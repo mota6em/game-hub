@@ -1,5 +1,5 @@
-import { ColorModeContext, HStack, Image, Text } from '@chakra-ui/react'
-import React from 'react'
+import { ColorModeContext, HStack, Image, Text } from '@chakra-ui/react';
+import React from 'react';
 import logo from '../assests/profile.png';
 import ColorModeWitch from './ColorModeWitch';
 function NavBar() {
