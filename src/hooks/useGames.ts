@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import apiClients from "../sevices/api-clients";
 import { CanceledError } from "axios";
 import { flatten } from "@chakra-ui/react";
+import useData from "./useData";
 
 export interface Platform {
   id: number;
@@ -16,32 +17,8 @@ export interface Game {
   background_image: string;
   parent_platforms: { platform: Platform }[];
 }
-interface FetchGamesResponse {
-  count: number;
-  results: Game[];
-}
-const useGames = () => {
-  const [isLoading, setLoading] = useState(false);
-  const [games, setGames] = useState<Game[]>([]);
-  const [error, setError] = useState("");
-  useEffect(() => {
-    // const controller = new AbortController();
-    setLoading(true);
-    apiClients
-      .get<FetchGamesResponse>("/games")
-      .then((res) => {
-        setGames(res.data.results), setLoading(false);
-      })
-      .catch((err) => {
-        setLoading(false);
-        if (err instanceof CanceledError) return;
-        setError(err.message);
-      });
-    // controller.abort();
-  }, []);
-  return { games, error, isLoading };
-};
 
+const useGames = () => useData<Game>("/games");
 export default useGames;
 // import React, { Fragment, useEffect, useState } from "react";
 // import apiClients from "../sevices/api-clients";
