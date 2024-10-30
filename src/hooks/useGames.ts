@@ -3,6 +3,7 @@ import apiClients from "../sevices/api-clients";
 import { CanceledError } from "axios";
 import { flatten } from "@chakra-ui/react";
 import useData from "./useData";
+import { Genre } from "./useGenres";
 
 export interface Platform {
   id: number;
@@ -18,7 +19,10 @@ export interface Game {
   parent_platforms: { platform: Platform }[];
 }
 
-const useGames = () => useData<Game>("/games");
+const useGames = (selectedGenre: Genre | null) =>
+  useData<Game>("/games", { params: { genres: selectedGenre?.id } }, [
+    selectedGenre?.id,
+  ]);
 export default useGames;
 // import React, { Fragment, useEffect, useState } from "react";
 // import apiClients from "../sevices/api-clients";
