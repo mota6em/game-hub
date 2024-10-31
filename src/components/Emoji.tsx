@@ -9,11 +9,11 @@ interface Props {
 const Emoji = ({ rating }: Props) => {
 
   const emojiMap: { [key: Number]: ImageProps } = {
-    3: { src: meh, alt: "meh" },
-    4: { src: thmbsUp, alt: "recommended" },
-    5: { src: bullsEye, alt: "exceptional" },
+    3: { src: meh, alt: "meh", boxSize: '25px' },
+    4: { src: thmbsUp, alt: "recommended" , boxSize: '25px'},
+    5: { src: bullsEye, alt: "exceptional" , boxSize: '35px'},
   };
-  return <Image {...emojiMap[rating]} boxSize="25px" />;
+  return <Image {...emojiMap[rating]} marginTop={1} />;
 };
 
 export default Emoji;
