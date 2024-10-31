@@ -13,9 +13,11 @@ interface Props {
 const GameGrid = ({gameQuery} : Props) => {
   const skeltons = [1, 2, 4, 5, 6, 7,8,9,10,11,12,13,15,16,17,18,19,20];
   const { data, error, isLoading } = useGames(gameQuery);
+
+  if(error) return<Text>Error 404</Text>
+
   return (
     <>
-      {error && <Text>Error 404</Text>}
       <SimpleGrid
         columns={{ sm: 1, md: 2, lg: 3, xl: 4 }}
         spacing={6}
