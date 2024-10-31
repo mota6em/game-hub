@@ -1,25 +1,32 @@
-import { Button, Menu, MenuButton, MenuItem,MenuList } from "@chakra-ui/react";
+import { Button, Menu, MenuButton, MenuItem, MenuList } from "@chakra-ui/react";
 import { BsChevronDown } from "react-icons/bs";
 import usePlatforms from "../hooks/usePlatforms";
-import {Platform} from "../hooks/useGames";
+import { Platform } from "../hooks/useGames";
 
-interface Props{
-    onSelectPLatform : (platform: Platform) => void;
-    selectedPlatform: Platform | null;
+interface Props {
+  onSelectPLatform: (platform: Platform) => void;
+  selectedPlatform: Platform | null;
 }
 
-const PlatformSCT = ({onSelectPLatform,selectedPlatform} : Props) => {
-    const {data,error} = usePlatforms();
+const PlatformSCT = ({ onSelectPLatform, selectedPlatform }: Props) => {
+  const { data, error } = usePlatforms();
 
-    if(error) return null;
-    return (
+  if (error) return null;
+  return (
     <>
       <Menu>
-      <MenuButton as={Button} rightIcon={<BsChevronDown />}>
-          {selectedPlatform?.name || 'Platforms'}
-      </MenuButton>
+        <MenuButton as={Button} rightIcon={<BsChevronDown />}>
+          {selectedPlatform?.name || "Platforms"}
+        </MenuButton>
         <MenuList>
-            {data.map(platform => (<MenuItem onClick={() => onSelectPLatform(platform)} key={platform.id}>{platform.name}</MenuItem>))}
+          {data.map((platform) => (
+            <MenuItem
+              onClick={() => onSelectPLatform(platform)}
+              key={platform.id}
+            >
+              {platform.name}
+            </MenuItem>
+          ))}
         </MenuList>
       </Menu>
     </>
