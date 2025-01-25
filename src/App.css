@@ -6,3 +6,38 @@
   width: 55%;
 }
 
+/* SearchBar */
+.search-bar {
+  border-radius: 50px;
+  overflow: hidden;
+  width: 100%;
+  max-width: 500px;
+}
+.search-bar .form-control {
+  border: none;
+  box-shadow: none;
+  padding-left: 10px;
+}
+.search-bar .input-group-text {
+  background: none;
+  border: none;
+  padding: 0.5rem 1rem;
+  color: black;
+}
+/**/
+
+/* Bootstrap General */
+.btn:focus,
+i:focus {
+  box-shadow: none !important;
+  outline: none !important;
+}
+
+
+
+/* responsive design */
+@media (max-width: 650px) {
+  .search-bar {
+    width: 50%;
+  }
+}
