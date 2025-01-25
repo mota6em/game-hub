@@ -4,5 +4,5 @@ export interface Game {
 }
 export interface FetchGamesResponse {
   count: number;
-  result: Game[];
+  results: Game[];
 }

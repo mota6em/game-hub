@@ -1,19 +1,10 @@
-import React, { useEffect, useState } from "react";
-import apiClient from "../services/api-client";
-import { FetchGamesResponse } from "../assets/ts/types";
+import useGame from "../hooks/useGames";
 
 const GameGrid = () => {
-  const [errors, setErrors] = useState("");
-  const [games, setGames] = useState([]);
-  useEffect(() => {
-    apiClient
-      .get<FetchGamesResponse>("/games")
-      .then((res) => setGames(res.data.results))
-      .catch((err) => setErrors(err.message));
-  });
+ const {games, error} = useGame();
   return (
     <>
-      {errors && <p>{errors} </p>}
+      {error && <p>{error} </p>}
       <ul>
         {games.map((game) => (
           <li key={game.id}>{game.name}</li>
