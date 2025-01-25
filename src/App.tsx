@@ -6,6 +6,7 @@ import {
   getDarkModeClasses,
   getNavDarkModeClasses,
 } from "./assets/ts/classUtils";
+import GameGrid from "./components/GameGrid";
 function App() {
   const [isDarkMode, setIsDarkMode] = useState(true);
   const toggleMode = () => {
@@ -49,8 +50,8 @@ function App() {
         >
           aside
         </div>
-        <div className={getDarkModeClasses(isDarkMode, "col-12 col-md-9")}>
-          main
+        <div className={getDarkModeClasses(isDarkMode, "d-flex justify-content-center align-items-center col-12 col-md-9")}>
+          <GameGrid></GameGrid>
         </div>
       </div>
     </div>
