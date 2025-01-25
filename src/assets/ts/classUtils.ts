@@ -16,3 +16,12 @@ export const getNavDarkModeClasses = (
     isDarkMode ? "bg-black text-white" : "bg-dark text-white"
   }`;
 };
+export const getGameCardDarkModeClasses = (
+  isDarkMode: boolean,
+  baseClasses: string
+): string => {
+  return `
+    ${baseClasses} ${
+    isDarkMode ? "bg-black text-white" : "bg-dark text-white"
+  }`;
+};

@@ -33,11 +33,17 @@ i:focus {
   outline: none !important;
 }
 
-
+/* game card */
+.game-card {
+  width: 15rem;
+}
 
 /* responsive design */
 @media (max-width: 650px) {
   .search-bar {
     width: 50%;
+  }
+  .game-card {
+    width: 22rem;
   }
 }

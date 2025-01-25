@@ -1,15 +1,22 @@
 import useGame from "../hooks/useGames";
+import GameCard from "./GameCard";
 
-const GameGrid = () => {
- const {games, error} = useGame();
+interface Props{
+  isDarkMode:boolean;
+}
+const GameGrid = ({isDarkMode} : Props) => {
+  const { games, error } = useGame();
   return (
     <>
       {error && <p>{error} </p>}
-      <ul>
-        {games.map((game) => (
-          <li key={game.id}>{game.name}</li>
-        ))}
-      </ul>
+      <div className="container-fulid">
+        <div className="row d-flex align-items-center justify-content-center">
+          {games.map((game) => (
+            <GameCard isDarkMode={isDarkMode} game={game} key={game.id} />
+            // <p key={game.id}>{game.name}</p>
+          ))}
+        </div>
+      </div>
     </>
   );
 };

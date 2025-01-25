@@ -18,7 +18,7 @@ function App() {
         <div
           className={getNavDarkModeClasses(
             isDarkMode,
-            "col-12 py-1 x-0 d-flex justify-content-between"
+            "col-12 py-1 x-0 d-flex justify-content-between fixed-top"
           )}
         >
           <div className="d-flex justify-content-center align-items-center">
@@ -41,17 +41,22 @@ function App() {
           </div>
         </div>
       </div>
-      <div className="row min-vh-100">
+      <div className="row min-vh-100 mt-5">
         <div
           className={getDarkModeClasses(
             isDarkMode,
-            " d-none d-md-block col-md-3 border-end"
+            " d-none d-md-block col-md-2 border-end"
           )}
         >
           aside
         </div>
-        <div className={getDarkModeClasses(isDarkMode, "d-flex justify-content-center align-items-center col-12 col-md-9")}>
-          <GameGrid></GameGrid>
+        <div
+          className={getDarkModeClasses(
+            isDarkMode,
+            "d-flex justify-content-center align-items-center col-12 col-md-10 pt-3"
+          )}
+        >
+          <GameGrid isDarkMode={isDarkMode}></GameGrid>
         </div>
       </div>
     </div>
