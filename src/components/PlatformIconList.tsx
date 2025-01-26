@@ -29,7 +29,7 @@ const PlatformIconList = ({ platforms }: Props) => {
     android: FaAndroid,
   };
   return (
-    <span className="d-flex align-items-center d-flex flex-wrap px-2">
+    <span className="d-flex align-items-center d-flex flex-wrap col-11 px-2">
       {platforms.map((platform) => {
         const Icon = iconMap[platform.slug];
         return (

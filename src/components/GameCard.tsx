@@ -1,5 +1,6 @@
 import { getGameCardDarkModeClasses } from "../assets/ts/classUtils";
 import { gameProps } from "../assets/ts/types";
+import CriticScore from "./CriticScore";
 import PlatformIconList from "./PlatformIconList";
 
 const GameCard = ({ game, isDarkMode }: gameProps) => {
@@ -17,9 +18,14 @@ const GameCard = ({ game, isDarkMode }: gameProps) => {
       ></img>
       <div className="card-body overflow-hidden">
         <h5 className="card-title fs-4">{game.name}</h5>
-        <PlatformIconList
-          platforms={game.parent_platforms.map((platform) => platform.platform)}
-        />
+        <div className="d-flex row pe-1">
+          <PlatformIconList
+            platforms={game.parent_platforms.map(
+              (platform) => platform.platform
+            )}
+          />
+          <CriticScore score={game.metacritic} />
+        </div>
       </div>
     </div>
   );

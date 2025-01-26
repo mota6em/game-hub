@@ -2,7 +2,8 @@ export interface Game {
   id: string;
   name: string;
   background_image: string;
-  parent_platforms: {platform: Platform}[]
+  parent_platforms: { platform: Platform }[];
+  metacritic: number;
 }
 export interface FetchGamesResponse {
   count: number;
@@ -10,10 +11,10 @@ export interface FetchGamesResponse {
 }
 export interface gameProps {
   game: Game;
-  isDarkMode: boolean
+  isDarkMode: boolean;
 }
 
-export interface Platform{
+export interface Platform {
   id: number;
   slug: string;
   name: string;
