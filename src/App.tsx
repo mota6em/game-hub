@@ -7,6 +7,7 @@ import {
   getNavDarkModeClasses,
 } from "./assets/ts/classUtils";
 import GameGrid from "./components/GameGrid";
+import GenreList from "./components/GenreList";
 function App() {
   const [isDarkMode, setIsDarkMode] = useState(true);
   const toggleMode = () => {
@@ -48,7 +49,7 @@ function App() {
             " d-none d-md-block col-md-2 border-end"
           )}
         >
-          aside
+          <GenreList />
         </div>
         <div
           className={getDarkModeClasses(
