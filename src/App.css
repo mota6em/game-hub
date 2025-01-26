@@ -43,7 +43,7 @@ i:focus {
   width: 15rem;
 }
 .h-fit-content {
-  height: fit-content;
+  height: fit-content !important;
 }
 .bg-yellow {
   background-color: rgba(255, 255, 0, 0.5) !important;
@@ -52,6 +52,10 @@ i:focus {
   background-color: rgba(0, 128, 0, 0.5) !important;
 }
 
+.py-0_5 {
+  padding-top: 2px;
+  padding-bottom: 2px;
+}
 /* responsive design */
 @media (max-width: 650px) {
   .search-bar {
@@ -59,5 +63,51 @@ i:focus {
   }
   .game-card {
     width: 22rem;
+  }
+}
+
+
+/* Skeleton */
+
+.skeleton-image {
+  height: 150px;
+  background: linear-gradient(90deg, #444 25%, #555 50%, #444 75%);
+  background-size: 200% 100%;
+  animation: skeleton-loading 1.5s infinite;
+}
+
+.skeleton-title {
+  height: 20px;
+  width: 70%;
+  background: linear-gradient(90deg, #444 25%, #555 50%, #444 75%);
+  background-size: 200% 100%;
+  animation: skeleton-loading 1.5s infinite;
+  border-radius: 4px;
+}
+
+.skeleton-platform {
+  height: 20px;
+  width: 50%;
+  background: linear-gradient(90deg, #444 25%, #555 50%, #444 75%);
+  background-size: 200% 100%;
+  animation: skeleton-loading 1.5s infinite;
+  border-radius: 4px;
+}
+
+.skeleton-score {
+  height: 20px;
+  width: 30px;
+  background: linear-gradient(90deg, #444 25%, #555 50%, #444 75%);
+  background-size: 200% 100%;
+  animation: skeleton-loading 1.5s infinite;
+  border-radius: 50%;
+}
+
+@keyframes skeleton-loading {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
   }
 }
