@@ -1,5 +1,6 @@
 import { getGameCardDarkModeClasses } from "../assets/ts/classUtils";
 import { gameProps } from "../assets/ts/types";
+import getCroppedImageURL from "../services/getCrippedImageURL";
 import CriticScore from "./CriticScore";
 import PlatformIconList from "./PlatformIconList";
 
@@ -12,7 +13,7 @@ const GameCard = ({ game, isDarkMode }: gameProps) => {
       )}
     >
       <img
-        src={game.background_image}
+        src={getCroppedImageURL(game.background_image)}
         className="card-img-top"
         alt={game.name + " img"}
       ></img>
