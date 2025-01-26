@@ -1,5 +1,6 @@
 import useGame from "../hooks/useGames";
 import GameCard from "./GameCard";
+import GameCardContainer from "./GameCardContainer";
 import GameCardSkeleton from "./GameCardSkeleton";
 
 interface Props {
@@ -17,9 +18,15 @@ const GameGrid = ({ isDarkMode }: Props) => {
       <div className="container-fulid">
         <div className="row d-flex justify-content-center">
           {isLoading &&
-            skeletons.map((skeleton) => <GameCardSkeleton key={skeleton} />)}
+            skeletons.map((skeleton) => (
+              <GameCardContainer isDarkMode={isDarkMode}>
+                <GameCardSkeleton key={skeleton} />
+              </GameCardContainer>
+            ))}
           {games.map((game) => (
-            <GameCard isDarkMode={isDarkMode} game={game} key={game.id} />
+            <GameCardContainer isDarkMode={isDarkMode}>
+              <GameCard isDarkMode={isDarkMode} game={game} key={game.id} />
+            </GameCardContainer>
           ))}
         </div>
       </div>
