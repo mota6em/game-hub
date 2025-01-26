@@ -1,7 +1,8 @@
 export interface Game {
   id: string;
   name: string;
-  background_image: string
+  background_image: string;
+  parent_platforms: {platform: Platform}[]
 }
 export interface FetchGamesResponse {
   count: number;
@@ -10,4 +11,10 @@ export interface FetchGamesResponse {
 export interface gameProps {
   game: Game;
   isDarkMode: boolean
+}
+
+export interface Platform{
+  id: number;
+  slug: string;
+  name: string;
 }

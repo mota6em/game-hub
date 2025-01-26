@@ -10,7 +10,7 @@ const GameGrid = ({isDarkMode} : Props) => {
     <>
       {error && <p>{error} </p>}
       <div className="container-fulid">
-        <div className="row d-flex align-items-center justify-content-center">
+        <div className="row d-flex justify-content-center">
           {games.map((game) => (
             <GameCard isDarkMode={isDarkMode} game={game} key={game.id} />
             // <p key={game.id}>{game.name}</p>
