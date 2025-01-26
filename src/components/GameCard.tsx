@@ -9,7 +9,7 @@ const GameCard = ({ game, isDarkMode }: gameProps) => {
     <div
       className={getGameCardDarkModeClasses(
         isDarkMode,
-        "card col-12 col-md-2 col-lg-3 m-2 p-0 game-card"
+        "card col-12 col-md-2 col-lg-3 m-2 p-0 game-card h-fit-content"
       )}
     >
       <img
