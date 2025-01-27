@@ -7,7 +7,7 @@ interface Props {
   isDarkMode: boolean;
 }
 const GameGrid = ({ isDarkMode }: Props) => {
-  const { games, error, isLoading } = useGame();
+  const { data, error, isLoading } = useGame();
   const skeletons = [
     1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21,
     22, 23, 24, 25,
@@ -23,7 +23,7 @@ const GameGrid = ({ isDarkMode }: Props) => {
                 <GameCardSkeleton key={skeleton} />
               </GameCardContainer>
             ))}
-          {games.map((game) => (
+          {data.map((game) => (
             <GameCardContainer isDarkMode={isDarkMode}>
               <GameCard isDarkMode={isDarkMode} game={game} key={game.id} />
             </GameCardContainer>
