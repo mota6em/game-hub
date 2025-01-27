@@ -8,11 +8,13 @@ import {
 } from "./assets/ts/classUtils";
 import GameGrid from "./components/GameGrid";
 import GenreList from "./components/GenreList";
+import { Genre } from "./hooks/useGenres";
 function App() {
   const [isDarkMode, setIsDarkMode] = useState(true);
   const toggleMode = () => {
     setIsDarkMode(!isDarkMode);
   };
+  const [selectedGenre, setSelectedGenre] = useState<Genre | null>(null);
   return (
     <div className="container-fluid">
       <div className="row">
@@ -46,10 +48,10 @@ function App() {
         <div
           className={getDarkModeClasses(
             isDarkMode,
-            "pt-3 d-none d-md-block col-md-2 ps-3 aside"
+            "pt-3 d-none d-md-block col-md-2 ps-2 aside"
           )}
         >
-          <GenreList />
+          <GenreList onClickGenre={(genre)=> setSelectedGenre(genre)} isDarkMode={isDarkMode} />
         </div>
         <div
           className={getDarkModeClasses(
@@ -57,7 +59,7 @@ function App() {
             "d-flex justify-content-center align-items-center col-12 col-md-10 pt-3"
           )}
         >
-          <GameGrid isDarkMode={isDarkMode}></GameGrid>
+          <GameGrid selectedGenre={selectedGenre} isDarkMode={isDarkMode}></GameGrid>
         </div>
       </div>
     </div>

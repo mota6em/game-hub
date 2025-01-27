@@ -8,7 +8,7 @@ body {
   height: 40px;
   width: 55%;
 }
-.aside{
+.aside {
   border-right: 1px solid rgba(128, 128, 128, 0.413);
 }
 /* SearchBar */
@@ -40,6 +40,13 @@ i:focus {
 .text-gray {
   color: rgb(164, 164, 164);
 }
+.btn-link {
+  text-decoration: none !important;
+}
+.btn-link:hover {
+  text-decoration: underline !important;
+}
+
 /* game card */
 .game-card {
   width: 15rem;
@@ -55,8 +62,8 @@ i:focus {
 }
 /* genre card */
 .genre-img {
-  width: 2.5rem;
-  height: 2.5rem;
+  width: 1.85rem;
+  height: 1.85rem;
   border-radius: 7.5px;
 }
 .py-0_5 {
