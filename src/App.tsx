@@ -51,7 +51,11 @@ function App() {
             "pt-3 d-none d-md-block col-md-2 ps-2 aside"
           )}
         >
-          <GenreList onClickGenre={(genre)=> setSelectedGenre(genre)} isDarkMode={isDarkMode} />
+          <GenreList
+            selectedGenre={selectedGenre}
+            onClickGenre={(genre) => setSelectedGenre(genre)}
+            isDarkMode={isDarkMode}
+          />
         </div>
         <div
           className={getDarkModeClasses(
@@ -59,7 +63,10 @@ function App() {
             "d-flex justify-content-center align-items-center col-12 col-md-10 pt-3"
           )}
         >
-          <GameGrid selectedGenre={selectedGenre} isDarkMode={isDarkMode}></GameGrid>
+          <GameGrid
+            selectedGenre={selectedGenre}
+            isDarkMode={isDarkMode}
+          ></GameGrid>
         </div>
       </div>
     </div>
