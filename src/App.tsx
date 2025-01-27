@@ -13,6 +13,7 @@ import GenreList from "./components/GenreList";
 import { Genre } from "./hooks/useGenres";
 import PlattformSelector from "./components/PlattformSelector";
 import { Platform } from "./assets/ts/types";
+import SortSelector from "./components/SortSelector";
 
 export interface GameQuery {
   genre: Genre | null;
@@ -73,16 +74,16 @@ function App() {
             "d-flex flex-column justify-content-center align-items-center col-12 col-md-10 pt-3"
           )}
         >
-          <PlattformSelector
-            selectedPlatform={gameQuery.platform}
-            onSelectPlatform={(platform) =>
-              setGameQuery({ ...gameQuery, platform })
-            }
-          />
-          <GameGrid
-            gameQuery={gameQuery}
-            isDarkMode={isDarkMode}
-          ></GameGrid>
+          <div className="d-flex align-item-start w-100 ms-5">
+            <PlattformSelector
+              selectedPlatform={gameQuery.platform}
+              onSelectPlatform={(platform) =>
+                setGameQuery({ ...gameQuery, platform })
+              }
+            />
+            <SortSelector />
+          </div>
+          <GameGrid gameQuery={gameQuery} isDarkMode={isDarkMode}></GameGrid>
         </div>
       </div>
     </div>
