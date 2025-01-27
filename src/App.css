@@ -52,8 +52,8 @@ i:focus {
   background-color: rgba(0, 128, 0, 0.5) !important;
 }
 /* genre card */
-.genre-img{
-  width:  2.5rem;
+.genre-img {
+  width: 2.5rem;
   height: 2.5rem;
   border-radius: 7.5px;
 }
@@ -70,7 +70,6 @@ i:focus {
     width: 22rem;
   }
 }
-
 
 /* Skeleton */
 
@@ -117,4 +116,21 @@ i:focus {
   100% {
     background-position: -200% 0;
   }
+}
+/* Genre Skeleton */
+.genre-skeleton-img {
+  background: linear-gradient(90deg, #444 25%, #555 50%, #444 75%);
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 7.5px;
+  background-size: 200%;
+  animation: skeleton-loading 1.5s infinite;
+}
+.genre-skeleton-name {
+  width: 4rem;
+  height: 1rem;
+  background: linear-gradient(90deg, #444 25%, #555 50%, #444 75%);
+  background-size: 200%;
+  animation: skeleton-loading 1.5s infinite;
+  border-radius: 7px;
 }
