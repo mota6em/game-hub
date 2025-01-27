@@ -2,6 +2,9 @@ import logo from "./assets/imgs/logo.jpg";
 import "../src/App.css";
 import SearchBar from "./components/SearchBar";
 import { useState } from "react";
+import "bootstrap/dist/css/bootstrap.min.css";  
+import "bootstrap/dist/js/bootstrap.bundle.min.js";  
+
 import {
   getDarkModeClasses,
   getNavDarkModeClasses,
@@ -9,6 +12,7 @@ import {
 import GameGrid from "./components/GameGrid";
 import GenreList from "./components/GenreList";
 import { Genre } from "./hooks/useGenres";
+import PlattformSelector from "./components/PlattformSelector";
 function App() {
   const [isDarkMode, setIsDarkMode] = useState(true);
   const toggleMode = () => {
@@ -60,9 +64,10 @@ function App() {
         <div
           className={getDarkModeClasses(
             isDarkMode,
-            "d-flex justify-content-center align-items-center col-12 col-md-10 pt-3"
+            "d-flex flex-column justify-content-center align-items-center col-12 col-md-10 pt-3"
           )}
         >
+          <PlattformSelector />
           <GameGrid
             selectedGenre={selectedGenre}
             isDarkMode={isDarkMode}
