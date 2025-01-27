@@ -1,3 +1,4 @@
+import { Platform } from "../assets/ts/types";
 import useGame from "../hooks/useGames";
 import { Genre } from "../hooks/useGenres";
 import GameCard from "./GameCard";
@@ -7,9 +8,10 @@ import GameCardSkeleton from "./GameCardSkeleton";
 interface Props {
   isDarkMode: boolean;
   selectedGenre: Genre | null;
+  selectedPlatform: Platform | null;
 }
-const GameGrid = ({ isDarkMode ,selectedGenre}: Props) => {
-  const { data, error, isLoading } = useGame(selectedGenre);
+const GameGrid = ({ isDarkMode ,selectedGenre,selectedPlatform}: Props) => {
+  const { data, error, isLoading } = useGame(selectedGenre,selectedPlatform);
   const skeletons = [
     1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21,
     22, 23, 24, 25,

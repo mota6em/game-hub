@@ -2,9 +2,8 @@ import logo from "./assets/imgs/logo.jpg";
 import "../src/App.css";
 import SearchBar from "./components/SearchBar";
 import { useState } from "react";
-import "bootstrap/dist/css/bootstrap.min.css";  
-import "bootstrap/dist/js/bootstrap.bundle.min.js";  
-
+import "bootstrap/dist/css/bootstrap.min.css";
+import "bootstrap/dist/js/bootstrap.bundle.min.js";
 import {
   getDarkModeClasses,
   getNavDarkModeClasses,
@@ -13,12 +12,16 @@ import GameGrid from "./components/GameGrid";
 import GenreList from "./components/GenreList";
 import { Genre } from "./hooks/useGenres";
 import PlattformSelector from "./components/PlattformSelector";
+import { Platform } from "./assets/ts/types";
 function App() {
   const [isDarkMode, setIsDarkMode] = useState(true);
   const toggleMode = () => {
     setIsDarkMode(!isDarkMode);
   };
   const [selectedGenre, setSelectedGenre] = useState<Genre | null>(null);
+  const [selectedPlatform, setSelectedPlatform] = useState<Platform | null>(
+    null
+  );
   return (
     <div className="container-fluid">
       <div className="row">
@@ -67,8 +70,12 @@ function App() {
             "d-flex flex-column justify-content-center align-items-center col-12 col-md-10 pt-3"
           )}
         >
-          <PlattformSelector />
+          <PlattformSelector
+            selectedPlatform={selectedPlatform}
+            onSelectPlatform={(platform) => setSelectedPlatform(platform)}
+          />
           <GameGrid
+            selectedPlatform={selectedPlatform}
             selectedGenre={selectedGenre}
             isDarkMode={isDarkMode}
           ></GameGrid>

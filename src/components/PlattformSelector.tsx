@@ -1,7 +1,11 @@
 import React from "react";
 import usePlatforms from "../hooks/usePlatforms";
-
-const PlattformSelector = () => {
+import { Platform } from "../assets/ts/types";
+interface Props {
+  onSelectPlatform: (platform: Platform) => void;
+  selectedPlatform: Platform | null;
+}
+const PlattformSelector = ({ onSelectPlatform, selectedPlatform }: Props) => {
   const { data, error } = usePlatforms();
   if (error) return null;
   return (
@@ -13,11 +17,15 @@ const PlattformSelector = () => {
           data-bs-toggle="dropdown"
           aria-expanded="false"
         >
-          Platforms
+          {selectedPlatform ? selectedPlatform.name : "Platforms"}
         </button>
         <ul className="dropdown-menu dropdown-menu-dark">
           {data.map((platform) => (
-            <li className="dropdown-item btn" key={platform.id}>
+            <li
+              onClick={() => onSelectPlatform(platform)}
+              className="dropdown-item btn"
+              key={platform.id}
+            >
               {platform.name}
             </li>
           ))}
