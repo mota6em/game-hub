@@ -51,6 +51,9 @@ i:focus {
 .game-card {
   width: 15rem;
 }
+.img-not-found{
+  height: 10rem;
+}
 .h-fit-content {
   height: fit-content !important;
 }

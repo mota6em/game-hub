@@ -6,11 +6,19 @@ import PlatformIconList from "./PlatformIconList";
 const GameCard = ({ game }: gameProps) => {
   return (
     <>
-      <img
-        src={getCroppedImageURL(game.background_image)}
-        className="card-img-top"
-        alt={game.name + " img"}
-      ></img>
+      {game.background_image === null ? (
+        <img
+          src="https://upload.wikimedia.org/wikipedia/commons/a/a3/Image-not-found.png?20210521171500"
+          className="card-img-top img-not-found"
+          alt="img not found"
+        ></img>
+      ) : (
+        <img
+          src={getCroppedImageURL(game.background_image)}
+          className="card-img-top"
+          alt={game.name + " img"}
+        ></img>
+      )}
       <div className="card-body overflow-hidden">
         <h5 className="card-title fs-4">{game.name}</h5>
         <div className="d-flex row pe-1">

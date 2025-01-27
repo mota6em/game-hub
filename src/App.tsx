@@ -13,15 +13,18 @@ import GenreList from "./components/GenreList";
 import { Genre } from "./hooks/useGenres";
 import PlattformSelector from "./components/PlattformSelector";
 import { Platform } from "./assets/ts/types";
+
+export interface GameQuery {
+  genre: Genre | null;
+  platform: Platform | null;
+}
+
 function App() {
   const [isDarkMode, setIsDarkMode] = useState(true);
   const toggleMode = () => {
     setIsDarkMode(!isDarkMode);
   };
-  const [selectedGenre, setSelectedGenre] = useState<Genre | null>(null);
-  const [selectedPlatform, setSelectedPlatform] = useState<Platform | null>(
-    null
-  );
+  const [gameQuery, setGameQuery] = useState<GameQuery>({} as GameQuery);
   return (
     <div className="container-fluid">
       <div className="row">
@@ -59,8 +62,8 @@ function App() {
           )}
         >
           <GenreList
-            selectedGenre={selectedGenre}
-            onClickGenre={(genre) => setSelectedGenre(genre)}
+            selectedGenre={gameQuery.genre}
+            onClickGenre={(genre) => setGameQuery({ ...gameQuery, genre })}
             isDarkMode={isDarkMode}
           />
         </div>
@@ -71,12 +74,13 @@ function App() {
           )}
         >
           <PlattformSelector
-            selectedPlatform={selectedPlatform}
-            onSelectPlatform={(platform) => setSelectedPlatform(platform)}
+            selectedPlatform={gameQuery.platform}
+            onSelectPlatform={(platform) =>
+              setGameQuery({ ...gameQuery, platform })
+            }
           />
           <GameGrid
-            selectedPlatform={selectedPlatform}
-            selectedGenre={selectedGenre}
+            gameQuery={gameQuery}
             isDarkMode={isDarkMode}
           ></GameGrid>
         </div>
