@@ -1,4 +1,3 @@
-import React from "react";
 import useGenres from "../hooks/useGenres";
 import GenreCard from "./GenreCard";
 import GenreCardSkeleton from "./GenreCardSkeleton";

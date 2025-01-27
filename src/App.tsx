@@ -46,7 +46,7 @@ function App() {
         <div
           className={getDarkModeClasses(
             isDarkMode,
-            "pt-3 d-none d-md-block col-md-2 ps-3 "
+            "pt-3 d-none d-md-block col-md-2 ps-3 aside"
           )}
         >
           <GenreList />

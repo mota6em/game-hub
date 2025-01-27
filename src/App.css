@@ -8,7 +8,9 @@ body {
   height: 40px;
   width: 55%;
 }
-
+.aside{
+  border-right: 1px solid rgba(128, 128, 128, 0.413);
+}
 /* SearchBar */
 .search-bar {
   border-radius: 50px;

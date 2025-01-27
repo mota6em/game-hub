@@ -1,4 +1,4 @@
-import React from "react";
+
 import { Genre } from "../hooks/useGenres";
 interface Props {
   genre: Genre;

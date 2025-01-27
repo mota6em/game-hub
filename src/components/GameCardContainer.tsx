@@ -1,4 +1,3 @@
-import React from "react";
 import { getGameCardDarkModeClasses } from "../assets/ts/classUtils";
 import { ReactNode } from "react";
 interface Props {

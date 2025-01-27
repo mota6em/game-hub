@@ -1,5 +1,5 @@
-import React from "react";
 import { Platform } from "../assets/ts/types";
+import { IconType } from "react-icons";
 import {
   FaWindows,
   FaPlaystation,
@@ -17,7 +17,7 @@ interface Props {
 }
 
 const PlatformIconList = ({ platforms }: Props) => {
-  const iconMap = {
+  const iconMap: Record<string, IconType> = {
     pc: FaWindows,
     playstation: FaPlaystation,
     xbox: FaXbox,
