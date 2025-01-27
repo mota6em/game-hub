@@ -51,7 +51,12 @@ i:focus {
 .bg-green {
   background-color: rgba(0, 128, 0, 0.5) !important;
 }
-
+/* genre card */
+.genre-img{
+  width:  2.5rem;
+  height: 2.5rem;
+  border-radius: 7.5px;
+}
 .py-0_5 {
   padding-top: 2px;
   padding-bottom: 2px;
