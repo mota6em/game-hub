@@ -18,6 +18,7 @@ import SortSelector from "./components/SortSelector";
 export interface GameQuery {
   genre: Genre | null;
   platform: Platform | null;
+  sortSelector: string;
 }
 
 function App() {
@@ -81,7 +82,12 @@ function App() {
                 setGameQuery({ ...gameQuery, platform })
               }
             />
-            <SortSelector />
+            <SortSelector
+              onSelectSort={(sortSelector: string) =>
+                setGameQuery({ ...gameQuery, sortSelector })
+              }
+              selectedSort={gameQuery.sortSelector}
+            />
           </div>
           <GameGrid gameQuery={gameQuery} isDarkMode={isDarkMode}></GameGrid>
         </div>
