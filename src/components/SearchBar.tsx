@@ -1,5 +1,5 @@
 import { useRef } from "react";
-import "../APP.css";
+import "../App.css";
 
 interface Props {
   setSearchInput: (input: string) => void;
