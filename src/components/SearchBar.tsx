@@ -5,7 +5,7 @@ interface Props {
   setSearchInput: (input: string) => void;
 }
 
-const SearchBar = ({setSearchInput} : Props) => {
+const SearchBar = ({ setSearchInput }: Props) => {
   const ref = useRef<HTMLInputElement>(null);
   return (
     <form
@@ -18,8 +18,8 @@ const SearchBar = ({setSearchInput} : Props) => {
       }}
     >
       <div className="input-group text-white my-1 bg-dark-subtle ">
-        <span className="input-group-text border-0">
-          <i className="fa-solid fa-magnifying-glass"></i>
+        <span className="input-group-text border-0 search-icon">
+          <i className="fa-solid fa-magnifying-glass "></i>
         </span>
         <input
           ref={ref}
