@@ -19,6 +19,7 @@ export interface GameQuery {
   genre: Genre | null;
   platform: Platform | null;
   sortSelector: string;
+  search: string;
 }
 
 function App() {
@@ -44,7 +45,7 @@ function App() {
             />
             <p className="m-0 text-white fw-bold px-1">Game-Hub</p>
           </div>
-          <SearchBar />
+          <SearchBar setSearchInput={(search)=> setGameQuery({...gameQuery, search})}/>
           <div
             id="switch-mod"
             className="d-flex flex-nowrap justify-content-center btn px-1 px-md-3 align-items-center text-white"
@@ -60,7 +61,7 @@ function App() {
         <div
           className={getDarkModeClasses(
             isDarkMode,
-            "pt-3 d-none d-md-block col-md-2 ps-2 aside"
+            "pt-3 d-none d-md-block col-md-2 ps-3 aside"
           )}
         >
           <GenreList
