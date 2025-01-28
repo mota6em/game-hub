@@ -51,7 +51,7 @@ i:focus {
 .game-card {
   width: 15rem;
 }
-.img-not-found{
+.img-not-found {
   height: 10rem;
 }
 .h-fit-content {
@@ -68,6 +68,8 @@ i:focus {
   width: 1.85rem;
   height: 1.85rem;
   border-radius: 7.5px;
+  object-fit: cover;
+  object-position: center;
 }
 .py-0_5 {
   padding-top: 2px;
