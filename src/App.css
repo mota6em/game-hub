@@ -46,13 +46,16 @@ i:focus {
 .btn-link:hover {
   text-decoration: underline !important;
 }
-
+.emoji {
+  width: 35px;
+}
 /* game card */
 .game-card {
   width: 15rem;
 }
 .img-not-found {
   height: 10rem;
+  object-fit: cover;
 }
 .h-fit-content {
   height: fit-content !important;
@@ -90,14 +93,14 @@ i:focus {
 .skeleton-image {
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
-  height: 160px;
+  height: 180px;
   background: linear-gradient(90deg, #444 25%, #555 50%, #444 75%);
   background-size: 200% 100%;
   animation: skeleton-loading 1.5s infinite;
 }
 
 .skeleton-title {
-  height: 25px;
+  height: 28px;
   width: 70%;
   background: linear-gradient(90deg, #444 25%, #555 50%, #444 75%);
   background-size: 200% 100%;
@@ -106,7 +109,7 @@ i:focus {
 }
 
 .skeleton-platform {
-  height: 25px;
+  height: 28px;
   width: 50%;
   background: linear-gradient(90deg, #444 25%, #555 50%, #444 75%);
   background-size: 200% 100%;

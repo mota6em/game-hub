@@ -1,6 +1,7 @@
 import { gameProps } from "../assets/ts/types";
 import getCroppedImageURL from "../services/getCrippedImageURL";
 import CriticScore from "./CriticScore";
+import Emoji from "./Emoji";
 import PlatformIconList from "./PlatformIconList";
 
 const GameCard = ({ game }: gameProps) => {
@@ -19,7 +20,7 @@ const GameCard = ({ game }: gameProps) => {
           alt={game.name + " img"}
         ></img>
       )}
-      <div className="card-body overflow-hidden">
+      <div className="card-body pb-2 overflow-hidden">
         <div className="d-flex row pe-1 pt-1 py-2">
           <PlatformIconList
             platforms={game.parent_platforms.map(
@@ -28,7 +29,9 @@ const GameCard = ({ game }: gameProps) => {
           />
           <CriticScore score={game.metacritic} />
         </div>
-        <h5 className="card-title fs-4">{game.name}</h5>
+        <h5 className="card-title fs-4">
+          {game.name} <Emoji rating={game.rating_top} />
+        </h5>
       </div>
     </>
   );
