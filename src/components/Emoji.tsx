@@ -1,4 +1,4 @@
-import React from "react";
+
 interface Props {
   rating: number;
 }
@@ -12,8 +12,7 @@ const Emoji = ({ rating }: Props) => {
   return (
     <div className="pt-1">
       <img
-        src={emojiMap[rating]?.src}
-        alt={emojiMap[rating]?.alt}
+        {...emojiMap[rating]}
         className="emoji"
       ></img>
     </div>

@@ -1,4 +1,4 @@
-import React from "react";
+
 import { GameQuery } from "../App";
 interface Props {
   gameQery: GameQuery;

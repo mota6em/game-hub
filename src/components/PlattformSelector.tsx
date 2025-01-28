@@ -1,4 +1,3 @@
-import React from "react";
 import usePlatforms from "../hooks/usePlatforms";
 import { Platform } from "../assets/ts/types";
 interface Props {
