@@ -14,6 +14,7 @@ import { Genre } from "./hooks/useGenres";
 import PlattformSelector from "./components/PlattformSelector";
 import { Platform } from "./assets/ts/types";
 import SortSelector from "./components/SortSelector";
+import GameGridHeader from "./components/GameGridHeader";
 
 export interface GameQuery {
   genre: Genre | null;
@@ -45,7 +46,9 @@ function App() {
             />
             <p className="m-0 text-white fw-bold px-1">Game-Hub</p>
           </div>
-          <SearchBar setSearchInput={(search)=> setGameQuery({...gameQuery, search})}/>
+          <SearchBar
+            setSearchInput={(search) => setGameQuery({ ...gameQuery, search })}
+          />
           <div
             id="switch-mod"
             className="d-flex flex-nowrap justify-content-center btn px-1 px-md-3 align-items-center text-white"
@@ -76,7 +79,8 @@ function App() {
             "d-flex flex-column justify-content-center align-items-center col-12 col-md-10 pt-3"
           )}
         >
-          <div className="d-flex align-item-start w-100 ms-5">
+          <GameGridHeader gameQery={gameQuery} />
+          <div className="d-flex align-item-start w-100 pb-3 ms-5">
             <PlattformSelector
               selectedPlatform={gameQuery.platform}
               onSelectPlatform={(platform) =>
