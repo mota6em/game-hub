@@ -1,3 +1,6 @@
+import mehImg from "../assets/imgs/meh.webp";
+import thumbsUpImg from "../assets/imgs/thumbs-up.webp";
+import bullsEyeImg from "../assets/imgs/bulls-eye.webp";
 
 interface Props {
   rating: number;
@@ -5,16 +8,13 @@ interface Props {
 const Emoji = ({ rating }: Props) => {
   if (rating < 3) return null;
   const emojiMap: Record<number, object> = {
-    3: { src: "src/assets/imgs/meh.webp", alt: "meh" },
-    4: { src: "src/assets/imgs/thumbs-up.webp", alt: "recommended" },
-    5: { src: "src/assets/imgs/bulls-eye.webp", alt: "exceptional" },
+    3: { src: mehImg, alt: "meh" },
+    4: { src: thumbsUpImg, alt: "recommended" },
+    5: { src: bullsEyeImg, alt: "exceptional" },
   };
   return (
     <div className="pt-1">
-      <img
-        {...emojiMap[rating]}
-        className="emoji"
-      ></img>
+      <img {...emojiMap[rating]} className="emoji"></img>
     </div>
   );
 };
