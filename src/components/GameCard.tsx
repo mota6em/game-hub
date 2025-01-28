@@ -20,8 +20,7 @@ const GameCard = ({ game }: gameProps) => {
         ></img>
       )}
       <div className="card-body overflow-hidden">
-        <h5 className="card-title fs-4">{game.name}</h5>
-        <div className="d-flex row pe-1">
+        <div className="d-flex row pe-1 pt-1 py-2">
           <PlatformIconList
             platforms={game.parent_platforms.map(
               (platform) => platform.platform
@@ -29,6 +28,7 @@ const GameCard = ({ game }: gameProps) => {
           />
           <CriticScore score={game.metacritic} />
         </div>
+        <h5 className="card-title fs-4">{game.name}</h5>
       </div>
     </>
   );
