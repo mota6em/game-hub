@@ -18,7 +18,7 @@ const PlattformSelector = ({ onSelectPlatform, selectedPlatform }: Props) => {
         {selectedPlatform ? selectedPlatform.name : "Platforms"}
       </button>
       <ul className="dropdown-menu dropdown-menu-dark">
-        {data.map((platform) => (
+        {data?.results.map((platform) => (
           <li
             onClick={() => onSelectPlatform(platform)}
             className="dropdown-item btn"
