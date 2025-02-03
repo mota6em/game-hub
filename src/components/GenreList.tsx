@@ -26,7 +26,7 @@ const GenreList = ({ isDarkMode, onClickGenre, selectedGenre }: Props) => {
     );
   return (
     <div>
-      {data.map((genre) => (
+      {data?.results.map((genre) => (
         <GenreCard
           selectedGenre={selectedGenre}
           onClickGenre={() => onClickGenre(genre)}
