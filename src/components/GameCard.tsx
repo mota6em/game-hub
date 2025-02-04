@@ -22,11 +22,11 @@ const GameCard = ({ game }: gameProps) => {
       )}
       <div className="card-body pb-2 overflow-hidden">
         <div className="d-flex row pe-1 pt-1 py-2">
-          <PlatformIconList
-            platforms={game.parent_platforms.map(
-              (platform) => platform.platform
-            )}
-          />
+          {game.parent_platforms && (
+            <PlatformIconList
+              platforms={game.parent_platforms.map((p) => p.platform)}
+            />
+          )}
           <CriticScore score={game.metacritic} />
         </div>
         <h5 className="card-title fs-4">
