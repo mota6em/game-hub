@@ -1,5 +1,5 @@
 body {
-  overflow-x: hidden;
+  overflow-x: hidden !important;
 }
 .logo-img {
   width: 40px;
@@ -29,7 +29,7 @@ body {
   padding: 0.5rem 1rem;
   color: black;
 }
-.search-icon{
+.search-icon {
   width: 35px !important;
 }
 /**/
@@ -51,7 +51,14 @@ i:focus {
 }
 .emoji {
   width: 35px;
+}.infinite-scroll-component{
+  overflow: hidden !important;
 }
+.g-container {
+  width: 100%;
+  max-width: 80% !important;
+}
+
 /* game card */
 .game-card {
   width: 15rem;

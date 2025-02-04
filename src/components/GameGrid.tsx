@@ -4,6 +4,7 @@ import useGame from "../hooks/useGames";
 import GameCard from "./GameCard";
 import GameCardContainer from "./GameCardContainer";
 import GameCardSkeleton from "./GameCardSkeleton";
+import InfiniteScroll from "react-infinite-scroll-component";
 
 interface Props {
   isDarkMode: boolean;
@@ -23,39 +24,47 @@ const GameGrid = ({ isDarkMode, gameQuery }: Props) => {
     22, 23, 24, 25,
   ];
   if (error) return <p>{error.message} </p>;
+  const fetchedGamesCount =
+    data?.pages.reduce((acc, page) => {
+      return acc + page.results.length;
+    }, 0) || 0;
   return (
-    <>
-      <div className="container-fulid">
-        <div className="row d-flex justify-content-center">
-          {isLoading &&
-            skeletons.map((skeleton) => (
-              <GameCardContainer key={skeleton} isDarkMode={isDarkMode}>
-                <GameCardSkeleton />
-              </GameCardContainer>
-            ))}
-          {data?.pages.map((page) => (
-            <React.Fragment key={page.next}>
-              {page.results.map((game) => (
-                <GameCardContainer key={game.id} isDarkMode={isDarkMode}>
-                  <GameCard isDarkMode={isDarkMode} game={game} />
+    <div className="container g-container overflow-x-hidden">
+      <div className="container-fulid overflow-x-hidden">
+        <InfiniteScroll
+          dataLength={fetchedGamesCount}
+          hasMore={!!hasNextPage}
+          next={() => fetchNextPage()}
+          loader={
+            isFetchingNextPage && (
+              <div className="d-flex justify-content-center align-items-center m-3 p-3">
+                <div className="spinner-border" role="status">
+                  <span className="visually-hidden">Loading...</span>
+                </div>
+              </div>
+            )
+          }
+        >
+          <div className="row d-flex justify-content-center">
+            {isLoading &&
+              skeletons.map((skeleton) => (
+                <GameCardContainer key={skeleton} isDarkMode={isDarkMode}>
+                  <GameCardSkeleton />
                 </GameCardContainer>
               ))}
-            </React.Fragment>
-          ))}
-        </div>
-        <div className="d-flex justify-content-start mx-5 my-3">
-          {hasNextPage && (
-            <button
-            className="btn btn-warning fw-bold"
-              disabled={isFetchingNextPage}
-              onClick={() => fetchNextPage()}
-            >
-              {isFetchingNextPage ? "Loading" : "Load More"}
-            </button>
-          )}
-        </div>
+            {data?.pages.map((page) => (
+              <React.Fragment key={page.next}>
+                {page.results.map((game) => (
+                  <GameCardContainer key={game.id} isDarkMode={isDarkMode}>
+                    <GameCard isDarkMode={isDarkMode} game={game} />
+                  </GameCardContainer>
+                ))}
+              </React.Fragment>
+            ))}
+          </div>
+        </InfiniteScroll>
       </div>
-    </>
+    </div>
   );
 };
 
