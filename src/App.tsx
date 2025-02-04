@@ -10,15 +10,13 @@ import {
 } from "./assets/ts/classUtils";
 import GameGrid from "./components/GameGrid";
 import GenreList from "./components/GenreList";
-import { Genre } from "./hooks/useGenres";
 import PlattformSelector from "./components/PlattformSelector";
-import { Platform } from "./assets/ts/types";
 import SortSelector from "./components/SortSelector";
 import GameGridHeader from "./components/GameGridHeader";
 
 export interface GameQuery {
-  genre: Genre | null;
-  platform: Platform | null;
+  genreId?: number;
+  platformId?: number;
   sortSelector: string;
   search: string;
 }
@@ -68,8 +66,10 @@ function App() {
           )}
         >
           <GenreList
-            selectedGenre={gameQuery.genre}
-            onClickGenre={(genre) => setGameQuery({ ...gameQuery, genre })}
+            selectedGenreId={gameQuery.genreId}
+            onClickGenre={(genre) =>
+              setGameQuery({ ...gameQuery, genreId: genre.id })
+            }
             isDarkMode={isDarkMode}
           />
         </div>
@@ -82,9 +82,9 @@ function App() {
           <GameGridHeader gameQery={gameQuery} />
           <div className="d-flex align-item-start w-100 pb-3 ms-5">
             <PlattformSelector
-              selectedPlatform={gameQuery.platform}
+              selectedPlatformId={gameQuery.platformId}
               onSelectPlatform={(platform) =>
-                setGameQuery({ ...gameQuery, platform })
+                setGameQuery({ ...gameQuery, platformId: platform.id })
               }
             />
             <SortSelector

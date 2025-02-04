@@ -9,8 +9,8 @@ const useGame = (gameQuery: GameQuery) =>
     queryFn: ({ pageParam = 1 }) =>
       apiClient.getAll({
         params: {
-          genres: gameQuery.genre?.id,
-          parent_platforms: gameQuery.platform?.id,
+          genres: gameQuery.genreId,
+          parent_platforms: gameQuery.platformId,
           ordering: gameQuery.sortSelector,
           search: gameQuery.search,
           page: pageParam,
@@ -19,7 +19,7 @@ const useGame = (gameQuery: GameQuery) =>
     getNextPageParam: (lastPage, allPages) => {
       return lastPage.next ? allPages.length + 1 : null;
     },
-    staleTime: 1000 * 60 * 60 * 24,// 24 hours
+    staleTime: 1000 * 60 * 60 * 24, // 24 hours
   });
 
 export default useGame;

@@ -4,13 +4,13 @@ interface Props {
   genre: Genre;
   isDarkMode: boolean;
   onClickGenre: () => void;
-  selectedGenre: Genre | null;
+  selectedGenreId?: number;
 }
 const GenreCard = ({
   genre,
   isDarkMode,
   onClickGenre,
-  selectedGenre,
+  selectedGenreId,
 }: Props) => {
   return (
     <div className="d-flex my-2 align-items-center">
@@ -23,7 +23,7 @@ const GenreCard = ({
           onClick={() => onClickGenre()}
           type="button"
           className={`text-start btn btn-link ${
-            selectedGenre?.id === genre.id ? "fw-bold underline" : ""
+            selectedGenreId === genre.id ? "fw-bold underline" : ""
           } ${isDarkMode ? "text-light" : "text-dark"}  m-0`}
         >
           {genre.name}

@@ -51,12 +51,9 @@ i:focus {
 }
 .emoji {
   width: 35px;
-}.infinite-scroll-component{
-  overflow: hidden !important;
 }
-.g-container {
-  width: 100%;
-  max-width: 80% !important;
+.infinite-scroll-component {
+  overflow: hidden !important;
 }
 
 /* game card */
