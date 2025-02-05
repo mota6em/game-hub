@@ -35,6 +35,13 @@ body {
 /**/
 
 /* Bootstrap General */
+.logo-title, .cursor-pointer {
+  cursor: pointer;
+  text-decoration: none;
+  &:hover{
+    text-decoration: underline;
+  }
+}
 .btn:focus,
 i:focus {
   box-shadow: none !important;

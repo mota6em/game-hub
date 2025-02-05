@@ -5,7 +5,7 @@ import GenreCardSkeleton from "./GenreCardSkeleton";
 interface Props {
   isDarkMode: boolean;
   onClickGenre: (genre: Genre) => void;
-  selectedGenreId?:number;
+  selectedGenreId?: number;
 }
 
 const GenreList = ({ isDarkMode, onClickGenre, selectedGenreId }: Props) => {

@@ -36,13 +36,25 @@ function App() {
             "col-12 py-1 x-0 d-flex justify-content-between fixed-top"
           )}
         >
-          <div className="d-flex justify-content-center align-items-center">
+          <div
+            className="d-flex justify-content-center align-items-center"
+            onClick={() =>
+              setGameQuery({
+                ...gameQuery,
+                genreId: undefined,
+                platformId: undefined,
+                search: "",
+                sortSelector: "",
+              })
+              
+            }
+          >
             <img
               src={logo}
               className="rounded float-start logo-img"
               alt="logo"
             />
-            <p className="m-0 text-white fw-bold px-1">Game-Hub</p>
+            <a className="m-0 text-white fw-bold px-1 logo-title">Game-Hub</a>
           </div>
           <SearchBar
             setSearchInput={(search) => setGameQuery({ ...gameQuery, search })}
@@ -67,8 +79,8 @@ function App() {
         >
           <GenreList
             selectedGenreId={gameQuery.genreId}
-            onClickGenre={(genre) =>
-              setGameQuery({ ...gameQuery, genreId: genre.id })
+            onClickGenre={(genre?) =>
+              setGameQuery({ ...gameQuery, genreId: genre?.id })
             }
             isDarkMode={isDarkMode}
           />
