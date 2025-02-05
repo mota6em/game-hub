@@ -13,20 +13,15 @@ import GenreList from "./components/GenreList";
 import PlattformSelector from "./components/PlattformSelector";
 import SortSelector from "./components/SortSelector";
 import GameGridHeader from "./components/GameGridHeader";
-
-export interface GameQuery {
-  genreId?: number;
-  platformId?: number;
-  sortSelector: string;
-  search: string;
-}
+import useGameQueryStore from "./store";
 
 function App() {
   const [isDarkMode, setIsDarkMode] = useState(true);
   const toggleMode = () => {
     setIsDarkMode(!isDarkMode);
   };
-  const [gameQuery, setGameQuery] = useState<GameQuery>({} as GameQuery);
+  const gameQueryStore = useGameQueryStore();
+
   return (
     <div className="container-fluid">
       <div className="row">
@@ -38,16 +33,12 @@ function App() {
         >
           <div
             className="d-flex justify-content-center align-items-center"
-            onClick={() =>
-              setGameQuery({
-                ...gameQuery,
-                genreId: undefined,
-                platformId: undefined,
-                search: "",
-                sortSelector: "",
-              })
-              
-            }
+            onClick={() => {
+              gameQueryStore.setGenreId(undefined);
+              gameQueryStore.setSearchText("");
+              gameQueryStore.setSortSelector("");
+              gameQueryStore.setPlatformId(undefined);
+            }}
           >
             <img
               src={logo}
@@ -57,7 +48,7 @@ function App() {
             <a className="m-0 text-white fw-bold px-1 logo-title">Game-Hub</a>
           </div>
           <SearchBar
-            setSearchInput={(search) => setGameQuery({ ...gameQuery, search })}
+            setSearchInput={(search) => gameQueryStore.setSearchText(search)}
           />
           <div
             id="switch-mod"
@@ -78,9 +69,9 @@ function App() {
           )}
         >
           <GenreList
-            selectedGenreId={gameQuery.genreId}
-            onClickGenre={(genre?) =>
-              setGameQuery({ ...gameQuery, genreId: genre?.id })
+            selectedGenreId={gameQueryStore.gameQuery.genreId}
+            onClickGenre={(genre) =>
+              gameQueryStore.setGenreId(genre ? genre.id : undefined)
             }
             isDarkMode={isDarkMode}
           />
@@ -91,22 +82,12 @@ function App() {
             "d-flex flex-column justify-content-center align-items-center col-12 col-md-10 pt-3"
           )}
         >
-          <GameGridHeader gameQery={gameQuery} />
+          <GameGridHeader />
           <div className="d-flex align-item-start w-100 pb-3 ms-5">
-            <PlattformSelector
-              selectedPlatformId={gameQuery.platformId}
-              onSelectPlatform={(platform) =>
-                setGameQuery({ ...gameQuery, platformId: platform.id })
-              }
-            />
-            <SortSelector
-              onSelectSort={(sortSelector: string) =>
-                setGameQuery({ ...gameQuery, sortSelector })
-              }
-              selectedSort={gameQuery.sortSelector}
-            />
+            <PlattformSelector />
+            <SortSelector />
           </div>
-          <GameGrid gameQuery={gameQuery} isDarkMode={isDarkMode}></GameGrid>
+          <GameGrid isDarkMode={isDarkMode}></GameGrid>
         </div>
       </div>
     </div>

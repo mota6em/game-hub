@@ -1,10 +1,9 @@
-import { GameQuery } from "../App";
 import useGenre from "../hooks/useGenre";
 import usePlatform from "../hooks/usePlatform";
-interface Props {
-  gameQery: GameQuery;
-}
-const GameGridHeader = ({ gameQery }: Props) => {
+import useGameQueryStore from "../store";
+ 
+const GameGridHeader = ( ) => {
+  const gameQery = useGameQueryStore((state) => state.gameQuery);
   const genre = useGenre(gameQery.genreId);
   const platform = usePlatform(gameQery.platformId);
   const heading = `

@@ -1,12 +1,10 @@
 import { useRef } from "react";
 import "../App.css";
+import useGameQueryStore from "../store";
 
-interface Props {
-  setSearchInput: (input: string) => void;
-}
-
-const SearchBar = ({ setSearchInput }: Props) => {
+const SearchBar = () => {
   const ref = useRef<HTMLInputElement>(null);
+  const setSearchInput = useGameQueryStore((s) => s.setSearchText);
   return (
     <form
       className="search-bar"

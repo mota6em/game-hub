@@ -1,11 +1,13 @@
 import { useInfiniteQuery } from "@tanstack/react-query";
-import { GameQuery } from "../App";
 import { Game } from "../assets/ts/types";
 import ms from "ms";
 import APICLIENT, { FetchResponse } from "../services/api-client";
+import useGameQueryStore from "../store";
 const apiClient = new APICLIENT<Game>("/games");
-const useGame = (gameQuery: GameQuery) =>
-  useInfiniteQuery<FetchResponse<Game>, Error>({
+
+const useGame = () => {
+  const gameQuery = useGameQueryStore((state) => state.gameQuery);
+  return useInfiniteQuery<FetchResponse<Game>, Error>({
     queryKey: ["games", gameQuery],
     queryFn: ({ pageParam = 1 }) =>
       apiClient.getAll({
@@ -22,5 +24,6 @@ const useGame = (gameQuery: GameQuery) =>
     },
     staleTime: ms("24h"),
   });
+};
 
 export default useGame;

@@ -1,3 +1,5 @@
+import useGameQueryStore from "../store";
+
 function capitalizeFirstLetter(word: string): string {
   return word.charAt(0).toUpperCase() + word.slice(1);
 }
@@ -5,7 +7,11 @@ interface Props {
   onSelectSort: (order: string) => void;
   selectedSort: string;
 }
-const SortSelector = ({ onSelectSort, selectedSort }: Props) => {
+const SortSelector = () => {
+  const setSortSelector = useGameQueryStore((state) => state.setSortSelector);
+  const selectedSort = useGameQueryStore(
+    (state) => state.gameQuery.sortSelector
+  );
   const sortOrders = [
     { value: "", label: "Relevance" },
     { value: "-name", label: "Name" },
@@ -32,7 +38,7 @@ const SortSelector = ({ onSelectSort, selectedSort }: Props) => {
         {sortOrders.map((order) => (
           <li
             key={order.value}
-            onClick={() => onSelectSort(order.value)}
+            onClick={() => setSortSelector(order.value)}
             className=" dropdown-item btn"
           >
             {capitalizeFirstLetter(order.label)}
