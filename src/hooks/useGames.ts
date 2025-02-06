@@ -5,7 +5,7 @@ import APICLIENT, { FetchResponse } from "../services/api-client";
 import useGameQueryStore from "../store";
 const apiClient = new APICLIENT<Game>("/games");
 
-const useGame = () => {
+const useGames = () => {
   const gameQuery = useGameQueryStore((state) => state.gameQuery);
   return useInfiniteQuery<FetchResponse<Game>, Error>({
     queryKey: ["games", gameQuery],
@@ -26,4 +26,4 @@ const useGame = () => {
   });
 };
 
-export default useGame;
+export default useGames;

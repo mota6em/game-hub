@@ -35,10 +35,11 @@ body {
 /**/
 
 /* Bootstrap General */
-.logo-title, .cursor-pointer {
+.logo-title,
+.cursor-pointer {
   cursor: pointer;
   text-decoration: none;
-  &:hover{
+  &:hover {
     text-decoration: underline;
   }
 }
@@ -62,15 +63,35 @@ i:focus {
 .infinite-scroll-component {
   overflow: hidden !important;
 }
-
+/* game-detail */
+.game-detail {
+  padding: 1rem;
+  padding-top: 4rem;
+}
 /* game card */
 .game-card {
   width: 15rem;
+  transition: transform 0.15s ease-in;
+  overflow: hidden;
+  cursor: pointer;
+}
+.game-card:hover {
+  transform: scale(1.02);
+  box-shadow: 0 0 5px rgba(255, 255, 255, 0.05);
+  .game-card-img {
+    transform: scale(1.05);
+  }
 }
 .img-not-found {
   height: 10rem;
   object-fit: cover;
 }
+.game-card-img {
+  object-fit: cover;
+  transition: ease 0.2s;
+  overflow: hidden;
+}
+
 .h-fit-content {
   height: fit-content !important;
 }
