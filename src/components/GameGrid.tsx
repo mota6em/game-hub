@@ -4,7 +4,9 @@ import GameCard from "./GameCard";
 import GameCardContainer from "./GameCardContainer";
 import GameCardSkeleton from "./GameCardSkeleton";
 import InfiniteScroll from "react-infinite-scroll-component";
-
+interface Props {
+  isDarkMode: boolean;
+}
 const GameGrid = ({ isDarkMode }: Props) => {
   const {
     data,

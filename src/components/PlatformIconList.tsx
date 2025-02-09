@@ -1,4 +1,4 @@
-import { Platform } from "../assets/ts/types";
+import { Platform } from "../entities/Platform";
 import { IconType } from "react-icons";
 import {
   FaWindows,

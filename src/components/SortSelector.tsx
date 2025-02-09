@@ -3,10 +3,10 @@ import useGameQueryStore from "../store";
 function capitalizeFirstLetter(word: string): string {
   return word.charAt(0).toUpperCase() + word.slice(1);
 }
-interface Props {
-  onSelectSort: (order: string) => void;
-  selectedSort: string;
-}
+// interface Props {
+//   onSelectSort: (order: string) => void;
+//   selectedSort: string;
+// }
 const SortSelector = () => {
   const setSortSelector = useGameQueryStore((state) => state.setSortSelector);
   const selectedSort = useGameQueryStore(

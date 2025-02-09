@@ -1,5 +1,5 @@
 import { create } from "zustand";
- 
+
 export interface GameQuery {
   genreId?: number;
   platformId?: number;
@@ -7,13 +7,13 @@ export interface GameQuery {
   search?: string;
 }
 interface GameQueryStore {
-  gameQuery: GameQuery; 
+  gameQuery: GameQuery;
   setSearchText: (search: string) => void;
   setGenreId: (genreId: number) => void;
   setPlatformId: (platformId: number) => void;
   setSortSelector: (sortSelector: string) => void;
 }
-const useGameQueryStore =  create<GameQueryStore>((set) => ({
+const useGameQueryStore = create<GameQueryStore>((set) => ({
   gameQuery: {} as GameQuery,
   setSearchText: (search: string) => set(() => ({ gameQuery: { search } })),
   setGenreId: (genreId: number) =>

@@ -1,4 +1,4 @@
-import { Genre } from "../hooks/useGenres";
+import { Genre } from "../entities/Genre";
 import getCroppedImageURL from "../services/getCrippedImageURL";
 import useGameQueryStore from "../store";
 interface Props {

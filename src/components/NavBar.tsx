@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import useGameQueryStore from "../store";
 import { getNavDarkModeClasses } from "../assets/ts/classUtils";
 import SearchBar from "./SearchBar";
@@ -29,9 +29,7 @@ const NavBar = () => {
           <img src={logo} className="rounded float-start logo-img" alt="logo" />
           <a className="m-0 text-white fw-bold px-1 logo-title">Game-Hub</a>
         </div>
-        <SearchBar
-          setSearchInput={(search) => gameQueryStore.setSearchText(search)}
-        />
+        <SearchBar />
         <div
           id="switch-mod"
           className="d-flex flex-nowrap justify-content-center btn px-1 px-md-3 align-items-center text-white"

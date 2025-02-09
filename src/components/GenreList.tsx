@@ -25,7 +25,7 @@ const GenreList = ({ isDarkMode }: Props) => {
   return (
     <div>
       {data?.results.map((genre) => (
-        <GenreCard isDarkMode={isDarkMode} genre={genre} key={genre.id} />
+        <GenreCard  isDarkMode={isDarkMode} genre={genre} key={genre.id} />
       ))}
     </div>
   );

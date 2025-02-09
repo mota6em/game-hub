@@ -1,16 +1,14 @@
-import React, { useState } from "react";
-import { getDarkModeClasses } from "../assets/ts/classUtils";
+ import { getDarkModeClasses } from "../assets/ts/classUtils";
 import GenreList from "../components/GenreList";
 import GameGridHeader from "../components/GameGridHeader";
 import PlattformSelector from "../components/PlattformSelector";
 import SortSelector from "../components/SortSelector";
 import GameGrid from "../components/GameGrid";
-import useGameQueryStore from "../store";
+// import useGameQueryStore from "../store";
 
 const HomePage = () => {
-  const [isDarkMode, setIsDarkMode] = useState(true);
-
-  const gameQueryStore = useGameQueryStore();
+  // const [isDarkMode, setIsDarkMode] = useState(true);
+  const isDarkMode = true;
 
   return (
     <div className="container-fluid">
@@ -22,10 +20,7 @@ const HomePage = () => {
           )}
         >
           <GenreList
-            selectedGenreId={gameQueryStore.gameQuery.genreId}
-            onClickGenre={(genre) =>
-              gameQueryStore.setGenreId(genre ? genre.id : undefined)
-            }
+            
             isDarkMode={isDarkMode}
           />
         </div>
