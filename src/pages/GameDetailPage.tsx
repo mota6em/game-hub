@@ -15,12 +15,12 @@ const GameDetailPage = () => {
     throw error;
   }
   return (
-    <div className="game-detail px-md-5">
+    <div className="game-detail px-md-2 px-lg-3">
       <h1>{game.name}</h1>
       <ExpandableText>{game.description_raw}</ExpandableText>
-      <div className="d-flex align-items-up justify-content-center row">
+      <div className="d-flex px-md-4 px-lg-5 pt-2 align-items-up justify-content-center row">
         <GameAttributes game={game} />
-        <div className="d-flex flex-column col-md-6">
+        <div className="d-flex flex-column col-md-8">
           <GameTrailer gameId={game.id} />
           <GameScreenshoots gameId={game.id} />
         </div>

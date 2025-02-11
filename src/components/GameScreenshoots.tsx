@@ -13,7 +13,7 @@ const GameScreenshoots = ({ gameId }: Props) => {
   }
   console.log(data);
   return (
-    <div className=" px-2 px-md-0 py-2 mx-md-5 row d-flex align-items-center justify-content-center">
+    <div className=" px-2 px-md-4 py-2  row d-flex align-items-center justify-content-center">
       {data?.results.map((screenshoot) => (
         <img
           key={screenshoot.id}

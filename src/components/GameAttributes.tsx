@@ -9,8 +9,8 @@ interface Props {
 
 const GameAttributes = ({ game }: Props) => {
   return (
-    <div className="container-fluid px-md-5 col-md-6">
-      <div className="row">
+    <div className="container-fluid px-md-0 col-md-4">
+      <div className="row d-flex align-items-start justify-content-between">
         <DefinitionItem term="Platforms">
           {game.parent_platforms?.map(({ platform }) => (
             <p key={platform.id} className="my-1 ">

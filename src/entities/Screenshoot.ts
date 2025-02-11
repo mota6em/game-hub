@@ -1,6 +1,5 @@
 interface Screenshoot {
-    id: number;
-    image: string;
-
+  id: number;
+  image: string;
 }
 export default Screenshoot;

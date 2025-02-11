@@ -18,7 +18,7 @@ const GameTrailer = ({ gameId }: Props) => {
     return null;
   }
   return (
-    <div className="container align-items-center justify-content-center">
+    <div className="d-flex align-items-center justify-content-center">
       <video
         className="object-fit-xxl-contain border rounded video"
         src={first.data[480]}
