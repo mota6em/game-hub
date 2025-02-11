@@ -9,16 +9,16 @@ export interface GameQuery {
 interface GameQueryStore {
   gameQuery: GameQuery;
   setSearchText: (search: string) => void;
-  setGenreId: (genreId: number) => void;
-  setPlatformId: (platformId: number) => void;
+  setGenreId: (genreId: number | undefined) => void;
+  setPlatformId: (platformId: number | undefined) => void;
   setSortSelector: (sortSelector: string) => void;
 }
 const useGameQueryStore = create<GameQueryStore>((set) => ({
   gameQuery: {} as GameQuery,
   setSearchText: (search: string) => set(() => ({ gameQuery: { search } })),
-  setGenreId: (genreId: number) =>
+  setGenreId: (genreId: number | undefined) =>
     set((store) => ({ gameQuery: { ...store.gameQuery, genreId } })),
-  setPlatformId: (platformId: number) =>
+  setPlatformId: (platformId: number | undefined) =>
     set((store) => ({ gameQuery: { ...store.gameQuery, platformId } })),
   setSortSelector: (sortSelector: string) =>
     set((store) => ({ gameQuery: { ...store.gameQuery, sortSelector } })),

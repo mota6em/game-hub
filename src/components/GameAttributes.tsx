@@ -1,4 +1,3 @@
-import React from "react";
 import Game from "../entities/Game";
 import DefinitionItem from "../components/DefinitionItem";
 import CriticScore from "../components/CriticScore";

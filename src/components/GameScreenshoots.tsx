@@ -1,4 +1,3 @@
-import React from "react";
 import useGameScreenshoots from "../hooks/useGameScreenshoots";
 interface Props {
   gameId: number;

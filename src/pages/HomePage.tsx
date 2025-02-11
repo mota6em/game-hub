@@ -5,10 +5,8 @@ import PlattformSelector from "../components/PlattformSelector";
 import SortSelector from "../components/SortSelector";
 import GameGrid from "../components/GameGrid";
 import { useDarkMode } from "../store";
-// import useGameQueryStore from "../store";
 
 const HomePage = () => {
-  // const [isDarkMode, setIsDarkMode] = useState(true);
   const {dark} = useDarkMode();
 
   return (

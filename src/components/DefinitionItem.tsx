@@ -1,6 +1,5 @@
-import React from "react";
 import { ReactNode } from "react";
-import ExpandableText from "./ExpandableText";
+
 interface Props {
   term: string;
   children: ReactNode | ReactNode[];
