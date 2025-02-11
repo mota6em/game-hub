@@ -12,7 +12,18 @@ const GameDetailPage = () => {
   const { data: game, isLoading, error } = useGame(slug!);
   const { dark } = useDarkMode();
   if (isLoading) {
-    return <div>Loading...</div>;
+    return (
+      <div
+        className={getDarkModeClasses(
+          dark,
+          `d-flex align-items-center justify-content-center min-vh-100 `
+        )}
+      >
+        <div className="spinner-grow" role="status">
+          <span className="visually-hidden">Loading...</span>
+        </div>
+      </div>
+    );
   }
   if (error || !game) {
     throw error;
