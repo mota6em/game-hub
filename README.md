@@ -1,54 +1,55 @@
-<<<<<<< HEAD
-# React + TypeScript + Vite
+# Game Hub
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Game Hub is a modern web application designed to provide users with an interactive platform for discovering and exploring video games. Built with cutting-edge technologies, it delivers a seamless user experience with fast performance and a clean interface.
 
-Currently, two official plugins are available:
+## Features
+- Browse a vast collection of video games
+- Search for games by title or genre
+- View detailed game information
+- Responsive design for a smooth experience on all devices
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Technologies Used
+- **Vite** - Fast and modern frontend tooling
+- **React** - For building dynamic user interfaces
+- **TypeScript** - Ensuring type safety and better development experience
+- **Bootstrap** - For a highly customizable and responsive UI
+- **Zustand** - Simple and scalable state management
+- **React Query** - Efficient data fetching and caching
+- **RAWG API** - Fetching game data from an extensive database
 
-## Expanding the ESLint configuration
+## Installation
+To run the project locally, follow these steps:
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+1. Clone the repository:
+   ```sh
+   git clone https://github.com/mota6em/game-hub.git
+   cd game-hub
+   ```
 
-- Configure the top-level `parserOptions` property like this:
+2. Install dependencies:
+   ```sh
+   npm install
+   ```
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+3. Start the development server:
+   ```sh
+   npm run dev
+   ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+## Live Preview
+You can preview the project live at: [Game Hub Live](https://rawg-gh.vercel.app/)
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+## Learning Experience
+This project was a great opportunity to solidify key development concepts, such as:
+- Working with APIs and handling data fetching
+- Managing state efficiently with Zustand
+- Using React Query for optimized data fetching and caching
+- Implementing a responsive UI with Bootstrap
+- Enhancing performance and modularity with TypeScript
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
-=======
-# game-hub
->>>>>>> 9e81c3064857d15d3551acffc713fbe2ee0df90c
+## Contribution
+Feel free to contribute by submitting issues or pull requests. Any improvements and suggestions are welcome!
+
+## License
+This project is open-source and available under the MIT License.
+
