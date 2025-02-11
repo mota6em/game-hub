@@ -1,10 +1,12 @@
 import { useRef } from "react";
 import "../App.css";
 import useGameQueryStore from "../store";
+import { useNavigate } from "react-router-dom";
 
 const SearchBar = () => {
   const ref = useRef<HTMLInputElement>(null);
   const setSearchInput = useGameQueryStore((s) => s.setSearchText);
+  const navigate = useNavigate();
   return (
     <form
       className="search-bar"
@@ -12,6 +14,7 @@ const SearchBar = () => {
         event.preventDefault();
         if (ref.current) {
           setSearchInput(ref.current.value);
+          navigate("/");
         }
       }}
     >
