@@ -1,32 +1,30 @@
- import { getDarkModeClasses } from "../assets/ts/classUtils";
+import { getDarkModeClasses } from "../assets/ts/classUtils";
 import GenreList from "../components/GenreList";
 import GameGridHeader from "../components/GameGridHeader";
 import PlattformSelector from "../components/PlattformSelector";
 import SortSelector from "../components/SortSelector";
 import GameGrid from "../components/GameGrid";
+import { useDarkMode } from "../store";
 // import useGameQueryStore from "../store";
 
 const HomePage = () => {
   // const [isDarkMode, setIsDarkMode] = useState(true);
-  const isDarkMode = true;
+  const {dark} = useDarkMode();
 
   return (
     <div className="container-fluid">
       <div className="row min-vh-100 mt-5">
         <div
           className={getDarkModeClasses(
-            isDarkMode,
+            dark,
             "pt-3 d-none d-md-block col-md-2 ps-3 aside"
           )}
         >
-          <GenreList
-            
-            isDarkMode={isDarkMode}
-          />
+          <GenreList isDarkMode={dark} />
         </div>
         <div
           className={getDarkModeClasses(
-            isDarkMode,
+            dark,
             "d-flex flex-column justify-content-center align-items-center col-12 col-md-10 pt-3"
           )}
         >
@@ -35,7 +33,7 @@ const HomePage = () => {
             <PlattformSelector />
             <SortSelector />
           </div>
-          <GameGrid isDarkMode={isDarkMode}></GameGrid>
+          <GameGrid isDarkMode={dark}></GameGrid>
         </div>
       </div>
     </div>

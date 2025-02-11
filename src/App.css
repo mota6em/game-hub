@@ -108,6 +108,9 @@ i:focus {
 .bg-green {
   background-color: rgba(0, 128, 0, 0.5) !important;
 }
+.bg-dark{
+  background-color: rgb(20, 20, 20) !important;
+}
 /* genre card */
 .genre-img {
   width: 1.85rem;

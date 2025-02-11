@@ -25,3 +25,14 @@ const useGameQueryStore = create<GameQueryStore>((set) => ({
 }));
 
 export default useGameQueryStore;
+interface Mode {
+  dark: boolean;
+  toggleMode: () => void;
+}
+export const useDarkMode = create<Mode>((set) => ({
+  dark: true,
+  toggleMode: () =>
+    set((state) => ({
+      dark: !state.dark,
+    })),
+}));

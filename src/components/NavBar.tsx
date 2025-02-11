@@ -1,20 +1,17 @@
-import { useState } from "react";
-import useGameQueryStore from "../store";
+import useGameQueryStore, { useDarkMode } from "../store";
 import { getNavDarkModeClasses } from "../assets/ts/classUtils";
 import SearchBar from "./SearchBar";
 import logo from "../assets/imgs/logo.jpg";
 import { Link } from "react-router-dom";
 const NavBar = () => {
   const gameQueryStore = useGameQueryStore();
-  const [isDarkMode, setIsDarkMode] = useState(true);
-  const toggleMode = () => {
-    setIsDarkMode(!isDarkMode);
-  };
+  const { dark, toggleMode } = useDarkMode();
+
   return (
     <div className="row">
       <div
         className={getNavDarkModeClasses(
-          isDarkMode,
+          dark,
           "col-12 py-1 x-0 d-flex justify-content-between fixed-top"
         )}
       >
@@ -42,8 +39,8 @@ const NavBar = () => {
           className="d-flex flex-nowrap justify-content-center btn px-1 px-md-3 align-items-center text-white"
         >
           <i
-            onClick={toggleMode}
-            className={`fa-solid fa-${isDarkMode ? "sun" : "moon"} fs-5`}
+            onClick={() => toggleMode()}
+            className={`fa-solid fa-${dark ? "sun" : "moon"} fs-5`}
           ></i>
         </div>
       </div>

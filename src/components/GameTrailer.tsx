@@ -20,7 +20,7 @@ const GameTrailer = ({ gameId }: Props) => {
   return (
     <div className="d-flex align-items-center justify-content-center">
       <video
-        className="object-fit-xxl-contain border rounded video"
+        className="object-fit-xxl-contain rounded video"
         src={first.data[480]}
         poster={first.preview}
         controls
