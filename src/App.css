@@ -35,6 +35,14 @@ body {
 /**/
 
 /* Bootstrap General */
+.video {
+  width: 100%;
+  height: 100%;
+}
+.screenshoot {
+  width: 100%;
+  /* height: 100%; */
+}
 .logo-title,
 .cursor-pointer {
   cursor: pointer;
